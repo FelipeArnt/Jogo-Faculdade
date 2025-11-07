@@ -1,6 +1,6 @@
 # Progresso do Projeto
 
-# **Etapa 1 - Jogo em JavaScript**:
+### **Etapa 1 - Jogo em JavaScript**:
 
 - [x] Diagrama de classes;
 - [] Descrição da história;
@@ -9,7 +9,7 @@
 - [] Executável do sistema (capaz de executar fora do ambiente de um IDE);
 - [] Instruções de uso do jogo;
 
-
+-----
 
 
 
