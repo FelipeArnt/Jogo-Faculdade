@@ -6,7 +6,7 @@ export class Ferramenta {
 	#nome;
 
 	constructor(nome) {
-        validate(nome,"String");
+    validate(nome,"String");
 		this.#nome = nome;
 	}
 
@@ -49,7 +49,7 @@ export class Mochila{
 
 // ---------------------------------------------
 export class Objeto {
-	#nome;
+	  #nome;
     #descricaoAntesAcao;
     #descricaoDepoisAcao;
     #acaoOk;

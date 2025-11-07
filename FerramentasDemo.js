@@ -7,9 +7,9 @@ export class Chave extends Ferramenta {
 	}
 }
 // ---------------------------------------------
-export class Martelo extends Ferramenta {
+export class Pendrive extends Ferramenta {
 	constructor() {
-		super("martelo");
+		super("pendrive");
 	}
 }
 // ---------------------------------------------
@@ -17,5 +17,4 @@ export class Notebook extends Ferramenta {
   constructor(){
     super("notebook");
   }
-
 }
