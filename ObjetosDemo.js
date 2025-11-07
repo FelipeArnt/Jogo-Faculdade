@@ -4,11 +4,11 @@ import { Chave, Notebook, Pendrive } from "./FerramentasDemo.js";
 
 export class Servidor extends Objeto {
   constructor() {
-    super("servidor", "O servidor foi comprometido",
+    super("servidor", "O servidor foi comprometido após um ataque cibernético.",
       "O servidor está criptografado. Não foi possível ler os dados, a restauração do servidor é necessária...");
   }
 
-  usar(ferramenta) {
+  usa(ferramenta, objeto) {
     validate(ferramenta, Ferramenta);
     if (ferramenta instanceof Chave) {
       this.acaoOk = true;
@@ -16,7 +16,6 @@ export class Servidor extends Objeto {
     }
     return false;
   }
-
 }
 // ---------------------------------------------
 export class Bilhete extends Objeto {
@@ -24,7 +23,7 @@ export class Bilhete extends Objeto {
     super("bilhete", "Há um bilhete, nele está escrito \"Senha para reparo do servidor: KLdjc3avy_bEjn9nBGMTaw\"", "Senha descriptografada: admin123");
   }
 
-  usar(ferramenta) {
+  usa(ferramenta, objeto) {
     validate(ferramenta, Ferramenta);
     return false;
   }
@@ -37,9 +36,8 @@ export class ArquivoRestaurador extends Objeto {
       "O arquivo está pronto para ser usado no servidor. A solução para restaurar o servidor foi encontrada!!!");
   }
 
-  usar(ferramenta) {
+  usa(ferramenta, objeto) {
     validate(ferramenta, Ferramenta);
-    console.log(ferramenta.nome);
     if (ferramenta instanceof Notebook) {
       this.acaoOk = true;
       return true;
@@ -50,11 +48,11 @@ export class ArquivoRestaurador extends Objeto {
 // ---------------------------------------------
 export class ArquivoCriptografado extends Objeto {
   constructor() {
-    super("arquivo_criptografado", "O arquivo foi criptografado.",
+    super("arquivo_criptografado", "O arquivo foi criptografado após o ataque.",
       "O arquivo foi descriptografado. Mas ele está vazio!");
   }
 
-  usar(ferramenta) {
+  usa(ferramenta, objeto) {
     validate(ferramenta, Ferramenta);
     if (ferramenta instanceof Notebook) {
       this.acaoOk = true;

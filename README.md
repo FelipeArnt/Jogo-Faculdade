@@ -1,39 +1,54 @@
-# Progresso do Projeto
+# Server Attack
 
-### **Etapa 1 - Jogo em JavaScript**:
+Um jogo de aventura textual em JavaScript onde você investiga um ataque cibernético a um servidor.
 
-- [x] Diagrama de classes;
-- [] Descrição da história;
-- [] Implementação de pelo menos 4 salas com respectivos objetos e ferramentas funcionais;
-- [] Código fonte do sistema com instruções de compilação, configuração e execução;
-- [] Executável do sistema (capaz de executar fora do ambiente de um IDE);
-- [] Instruções de uso do jogo;
+Seu objetivo é restaurar o servidor comprometido coletando ferramentas, resolvendo enigmas e usando itens nas salas corretas.
 
------
+## Objetivo do Jogo
 
+- Comece no Hall de Entrada.
+- Colete ferramentas (ex.: notebook) e use-as em objetos (ex.: servidor) para progredir.
+- Restaure o servidor usando o arquivo restaurador no laboratório com o notebook.
+- O jogo termina quando você vence ou digita "fim".
 
+## Como Jogar
 
+Execute o jogo com Node.js (veja "Execução" abaixo). Use comandos no prompt:
 
-# Server Attack:
+- **pega [ferramenta]**: Coleta uma ferramenta da sala atual para a mochila
+  - (ex.: "pega notebook").
+- **inventario**: Lista ferramentas na mochila.
+- **usa [ferramenta] [objeto]**: Usa uma ferramenta em um objeto da sala
+  - (ex.: "usa chave servidor").
+- **sai [porta]**: Move para outra sala
+  - (ex.: "sai sala_servidor").
+- **fim**: Encerra o jogo.
 
-- Basicas.js: Contém as classes que compõe a estrutura básica do jogo, isto é, o "Framework" a partir do qual o jogo deve ser elaborado. No desenvolvimento do trabalho o jogo que deve ser desenvolvido deverá ser criado a partir dessas classes.
+## Estrutura dos Arquivos
 
-Classes do arquivos **Basicas.js**:
+- **Basicas.js**: Framework base do jogo.
+  - **Engine**: Controla o loop do jogo, mochila e salas.
+  - **Sala**: Representa uma sala com objetos, ferramentas e portas.
+  - **Mochila**: Armazena ferramentas coletadas.
+  - **Ferramenta**: Classe base para itens usáveis (ex.: chave, notebook).
+  - **Objeto**: Classe base para itens interativos (ex.: servidor, arquivos).
+- **FerramentasDemo.js**: Ferramentas específicas (Chave, Pendrive, Notebook).
+- **ObjetosDemo.js**: Objetos específicos (Servidor, Bilhete, ArquivoRestaurador, ArquivoCriptografado).
+- **SalasDemo.js**: Salas do jogo (HallEntrada, SalaServidor, Deposito, Laboratorio).
+- **JogoDemo.js**: Classe derivada de Engine que configura o cenário.
+- **index.js**: Ponto de entrada para iniciar o jogo.
 
-- Engine:
-  - 
+## Execução
 
-- Sala 
-- Mochila
-- Ferramenta
-- Objeto 
+1. Instale dependências: `npm install bycontract prompt-sync`.
+2. Execute: `node index.js`.
 
+## Desenvolvimento
 
+Para criar um novo jogo:
 
+- Derive novas classes de Engine, Sala, Ferramenta e Objeto.
+- Sobrescreva `criaCenario()` em uma subclasse de Engine para definir salas e conexões.
+- Adicione validações com `bycontract` para robustez.
 
-Para criar o jogo, com um novo labirinto e um novo desafio, é necessário derivar um novo conjunto de ferramentas (Classe ferramentas), um novo conjunto de objetos (Classe objetos) e organizar todos estes elementos em uma classe derivada da classe Engine (Classe JogoDemo).
-
-
-
-
-
+Divirta-se restaurando o servidor!

@@ -34,7 +34,7 @@ export class SalaServidor extends Sala {
       return false;
     }
     let servidor = this.objetos.get(objeto);
-    return servidor.usar(this.engine.mochila.pega(ferramenta));
+    return servidor.usa(this.engine.mochila.pega(ferramenta), objeto);
   }
 }
 // ---------------------------------------------
@@ -59,9 +59,9 @@ export class Laboratorio extends Sala {
     validate(engine, Engine);
     super("Laboratorio", engine);
     let arquivoRestaurador = new ArquivoRestaurador();
-    this.objetos.set(arquivo.nome, arquivoRestaurador);
-    let arquivoCriptografado = new ArquivoCriptografado;
-    this.objetos.set(arquivo.nome, arquivoCriptografado);
+    this.objetos.set(arquivoRestaurador.nome, arquivoRestaurador);
+    let arquivoCriptografado = new ArquivoCriptografado();
+    this.objetos.set(arquivoCriptografado.nome, arquivoCriptografado);
   }
 
   usa(ferramenta, objeto) {
@@ -73,7 +73,7 @@ export class Laboratorio extends Sala {
       return false;
     }
     let arquivo = this.objetos.get(objeto);
-    let usou = arquivo.usar(this.engine.mochila.pega(ferramenta));
+    let usou = arquivo.usa(this.engine.mochila.pega(ferramenta), objeto);
     if (arquivo instanceof ArquivoRestaurador && usou == true) {
       this.engine.indicaFimDeJogo();
     }
