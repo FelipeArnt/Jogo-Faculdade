@@ -43,12 +43,4 @@ Execute o jogo com Node.js (veja "Execução" abaixo). Use comandos no prompt:
 1. Instale dependências: `npm install bycontract prompt-sync`.
 2. Execute: `node index.js`.
 
-## Desenvolvimento
-
-Para criar um novo jogo:
-
-- Derive novas classes de Engine, Sala, Ferramenta e Objeto.
-- Sobrescreva `criaCenario()` em uma subclasse de Engine para definir salas e conexões.
-- Adicione validações com `bycontract` para robustez.
-
 Divirta-se restaurando o servidor!
