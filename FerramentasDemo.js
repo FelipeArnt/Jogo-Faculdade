@@ -1,9 +1,9 @@
 import {Ferramenta} from "./Basicas.js";
 
 // ---------------------------------------------
-export class Chave extends Ferramenta {
+export class Descriptografador extends Ferramenta {
 	constructor() {
-		super("chave");
+		super("descriptografador");
 	}
 }
 // ---------------------------------------------
@@ -15,6 +15,12 @@ export class Pendrive extends Ferramenta {
 // ---------------------------------------------
 export class Notebook extends Ferramenta {
   constructor(){
-    super("notebook");
+    super("notebook-kali");
   }
 }
+export class CaboEthernet extends Ferramenta{
+  constructor(){
+    super("caboethernet");
+  }
+}
+

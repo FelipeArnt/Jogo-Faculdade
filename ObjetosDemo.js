@@ -1,16 +1,16 @@
 import { validate } from "bycontract";
 import { Objeto, Ferramenta } from "./Basicas.js";
-import { Chave, Notebook, Pendrive } from "./FerramentasDemo.js";
+import { Descriptografador, Notebook, Pendrive, CaboEthernet } from "./FerramentasDemo.js";
 
 export class Servidor extends Objeto {
   constructor() {
-    super("servidor", "O servidor foi comprometido após um ataque cibernético.",
-      "O servidor está criptografado. Não foi possível ler os dados, a restauração do servidor é necessária...");
+    super("servidor", "Serv1d0r at4ckad0 jdakmxljox knxcy78uhdn uicxuhia nmuusaddnsja.",
+      "O servidor principal foi criptografado e apenas um brute-force attack para tal criptografia...");
   }
 
   usa(ferramenta, objeto) {
     validate(ferramenta, Ferramenta);
-    if (ferramenta instanceof Chave) {
+    if (ferramenta instanceof Descriptografador) {
       this.acaoOk = true;
       return true;
     }
@@ -20,20 +20,24 @@ export class Servidor extends Objeto {
 // ---------------------------------------------
 export class Bilhete extends Objeto {
   constructor() {
-    super("bilhete", "Há um bilhete, nele está escrito \"Senha para reparo do servidor: KLdjc3avy_bEjn9nBGMTaw\"", "Senha descriptografada: admin123");
+    super("bilhete", "Há um bilhete, nele está escrito Senha para reparo do servidor: admin123", "A senha não é efetiva nesse cenário...");
   }
 
   usa(ferramenta, objeto) {
     validate(ferramenta, Ferramenta);
+    if (ferramenta instanceof Descriptografador){
+      this.acaoOk = true;
+      return true;
+    }
     return false;
   }
 }
 
 // ---------------------------------------------
-export class ArquivoRestaurador extends Objeto {
+export class ServidorAfetado extends Objeto {
   constructor() {
-    super("arquivo_restaurador", "O arquivo é protegido por senha",
-      "O arquivo está pronto para ser usado no servidor. A solução para restaurar o servidor foi encontrada!!!");
+    super("servidor_afetado", "O servidor principal foi afetado!",
+      "[INFO] Servidor em modo de compatibilidade...");
   }
 
   usa(ferramenta, objeto) {
@@ -48,13 +52,13 @@ export class ArquivoRestaurador extends Objeto {
 // ---------------------------------------------
 export class ArquivoCriptografado extends Objeto {
   constructor() {
-    super("arquivo_criptografado", "O arquivo foi criptografado após o ataque.",
-      "O arquivo foi descriptografado. Mas ele está vazio!");
+    super("arquivo_criptografado", "AR56NTT2Xcaucb77HJhdbj_djida=zs0",
+      "Para realizar um brute-force é necessário ferramentas cibernéticas...");
   }
 
   usa(ferramenta, objeto) {
     validate(ferramenta, Ferramenta);
-    if (ferramenta instanceof Notebook) {
+    if (ferramenta instanceof Descriptografador) {
       this.acaoOk = true;
       return true;
     }

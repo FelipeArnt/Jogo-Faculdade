@@ -1,19 +1,27 @@
-# Server Attack
 
-Um jogo de aventura textual em JavaScript onde você investiga um ataque cibernético a um servidor.
 
-Seu objetivo é restaurar o servidor comprometido coletando ferramentas, resolvendo enigmas e usando itens nas salas corretas.
+### 📖 Server Attack
+
+"São 3 da manhã de uma terça-feira. O alarme silencioso da sua estação de trabalho dispara, exibindo a única notificação que você temia: **'VIOLAÇÃO DE REDE DETECTADA - NÍVEL CRÍTICO'**.
+
+Você é o estagiário de Cibersegurança da corporação e acaba de chegar ao data center escuro e silencioso. O ataque foi devastador: um malware desconhecido varreu os sistemas, e o servidor principal está comprometido.
+
+As luzes de emergência piscam suavemente no **`Hall_de_Entrada`**. Você está sozinho.
+
+O invasor deixou rastros criptografados pelos servidores. Um **`Bilhete`** enigmático foi encontrado no **`Deposito`** e um **`ArquivoCriptografado`** suspeito está no **`Laboratorio`**.
+
+Seu único objetivo é lutar contra o tempo, investigar as salas em busca de pistas e encontrar o **`Descriptografador`**. Apenas com ele e seu **`notebook`** Kali-Linux, você poderá acessar o servidor no **`Laboratorio`** e executar a restauração.
 
 ## Objetivo do Jogo
 
 - Comece no Hall de Entrada.
-- Colete ferramentas (ex.: notebook) e use-as em objetos (ex.: servidor) para progredir.
-- Restaure o servidor usando o arquivo restaurador no laboratório com o notebook.
+- Colete ferramentas (notebook-kali e Descriptografador) e use-as em objetos (servidor_afetado, servidor, ) para ganhar o jogo.
+- Restaure o servidor usando o notebook com Kali-Linux no servidor afetado.
 - O jogo termina quando você vence ou digita "fim".
 
 ## Como Jogar
 
-Execute o jogo com Node.js (veja "Execução" abaixo). Use comandos no prompt:
+Execute o jogo com `nodejs index.js`. Use comandos no prompt:
 
 - **pega [ferramenta]**: Coleta uma ferramenta da sala atual para a mochila
   - (ex.: "pega notebook").
@@ -30,10 +38,10 @@ Execute o jogo com Node.js (veja "Execução" abaixo). Use comandos no prompt:
   - **Engine**: Controla o loop do jogo, mochila e salas.
   - **Sala**: Representa uma sala com objetos, ferramentas e portas.
   - **Mochila**: Armazena ferramentas coletadas.
-  - **Ferramenta**: Classe base para itens usáveis (ex.: chave, notebook).
-  - **Objeto**: Classe base para itens interativos (ex.: servidor, arquivos).
-- **FerramentasDemo.js**: Ferramentas específicas (Chave, Pendrive, Notebook).
-- **ObjetosDemo.js**: Objetos específicos (Servidor, Bilhete, ArquivoRestaurador, ArquivoCriptografado).
+  - **Ferramenta**: Classe base para itens usáveis (notebook-kali,Descriptografador etc...).
+  - **Objeto**: Classe base para itens interativos .
+- **FerramentasDemo.js**: Ferramentas específicas (Descriptografador, CaboEthernet, Notebook-kali).
+- **ObjetosDemo.js**: Objetos específicos (Servidor, Bilhete, ServidorAfetado, ArquivoCriptografado).
 - **SalasDemo.js**: Salas do jogo (HallEntrada, SalaServidor, Deposito, Laboratorio).
 - **JogoDemo.js**: Classe derivada de Engine que configura o cenário.
 - **index.js**: Ponto de entrada para iniciar o jogo.
@@ -43,4 +51,3 @@ Execute o jogo com Node.js (veja "Execução" abaixo). Use comandos no prompt:
 1. Instale dependências: `npm install bycontract prompt-sync`.
 2. Execute: `node index.js`.
 
-Divirta-se restaurando o servidor!

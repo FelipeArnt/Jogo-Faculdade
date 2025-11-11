@@ -14,12 +14,20 @@ export class JogoDemo extends Engine {
     let deposito = new Deposito(this);
 
     // Encadeia as salas através das portas (conexões bidirecionais)
-    hall.portas.set(salaservidor.nome, salaservidor);
-    salaservidor.portas.set(hall.nome, hall);
-    salaservidor.portas.set(laboratorio.nome, laboratorio);
-    salaservidor.portas.set(deposito.nome, deposito);
+    hall.portas.set(laboratorio.nome, laboratorio);
+    laboratorio.portas.set(hall.nome, hall);
     laboratorio.portas.set(salaservidor.nome, salaservidor);
-    deposito.portas.set(salaservidor.nome, salaservidor);
+    laboratorio.portas.set(deposito.nome, deposito);
+    salaservidor.portas.set(laboratorio.nome, laboratorio);
+    deposito.portas.set(laboratorio.nome, laboratorio);
+
+
+    //salaservidor.portas.set(hall.nome, hall);
+    //salaservidor.portas.set(laboratorio.nome, laboratorio);
+    //salaservidor.portas.set(deposito.nome, deposito);
+    
+    // laboratorio.portas.set(salaservidor.nome, salaservidor);
+    //deposito.portas.set(salaservidor.nome, salaservidor);
 
     // Define a sala inicial
     this.salaCorrente = hall;
